@@ -1,0 +1,15 @@
+user:
+ - !!models.User
+  id: 1
+  names: Super Admin
+  role: superAdmin
+  email: admin@gmail.com
+  phone: +250788065487
+  password: password
+market:
+  - !!models.Market
+   id: 1
+   name: Individual Market
+   location: Vary
+   openAt: not defined
+   closeAt: not defined

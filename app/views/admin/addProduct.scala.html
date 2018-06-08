@@ -1,0 +1,90 @@
+@(brand:List[Brand],category:List[ProductCategory])
+@admin.master("Everything | Add product"){
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Add new product</h4> </div>
+            </div>
+                <!-- /row -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="white-box">
+                        <div class="row"><i style="color: red">marked * are required fields</i><br><br>
+                            <form role="form" action="@routes.ProductController.store()" method="post" enctype="multipart/form-data">
+
+                                <div class="form-group col-sm-6">
+                                    <label>Product name</label>
+                                    <input type="text" name="name" placeholder="Product name" class="form-control" required>
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>Price</label>
+                                    <input type="text" name="price" placeholder="Price" class="form-control" required>
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label>Quantity</label>
+                                    <input type="text" name="quantity" placeholder="2kg" class="form-control" required>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Category*</label>
+                                    <select class="form-control col-md-4 col-lg-3" name="category">
+                                        <option value="">--Select Category</option>
+                                        @for(cat<-category){
+                                            <option value="@cat.id">@cat.name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label>Brand*</label>
+                                    <select class="form-control" name="brand">
+                                        <option value="">---Select Brand---</option>
+                                        @for(bra <-brand){
+                                            <option value="@bra.id">@bra.name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label>Quality*</label>
+                                    <select class="form-control" name="quality">
+                                        <option value="Used">Used</option>
+                                        <option value="New">New</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label>Description</label>
+                                    <Textarea class="form-control" required name="discr"> </textarea>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label> 1<sup>st</sup>Picture</label> <input type="file" name="photo"  class="form-control" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>2<sup>nd</sup>Picture</label> <input type="file" name="photo"  class="form-control" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>3<sup>rd</sup>Picture</label> <input type="file" name="photo"  class="form-control" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>4<sup>th</sup>Picture</label> <input type="file" name="photo"  class="form-control" required>
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <button type="submit" class="btn btn-primary pull-right"><span class="fa fa-check-circle"></span> Save</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                <!-- /.row -->
+
+        </div>
+    </div>
+
+}

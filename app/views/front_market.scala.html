@@ -1,0 +1,52 @@
+
+
+@(markets:List[Shop],market_name:Market)
+@main("Everything | Sellers"){
+    <section id="" class=" wow fadeInUp">
+        <div class="container">
+            <h1 class="section-title">@market_name.name</h1>
+            <div class="row">
+
+            <div class="product-grid-holder medium">
+ @for(shop <-markets) {
+     <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+         <div class="product-item">
+             <div class="image">
+                 <img alt="" src="@routes.Assets.at(shop.image)" data-echo="@routes.Assets.at(shop.image)" />
+             </div>
+             <div class="body">
+                 <div class="title">
+                     <a href="single-product.html">@shop.name</a>
+                 </div>
+                 <div class="brand">open</div>
+             </div>
+             <div class="prices">
+                     <!-- hours that a shop is open -->
+                 <div class="price-prev" style="color: #000">@shop.openAt</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-
+                 <div class="price-current pull-right">@shop.closeAt</div>
+             </div>
+
+             <div class="hover-area">
+                 <div class="add-cart-button">
+                     <a href="@routes.SuperMarketController.front_superMarket(shop.id)" class="le-button">Visit</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+ }
+            </div>
+                <div class="row">
+                    <div class="loadmore-holder text-center">
+                        <a class="btn-loadmore" href="#">
+                            <i class="fa fa-plus"></i>
+                            load more markets</a>
+                    </div>
+                </div>
+
+
+            </div><!-- /.product-grid-holder -->
+        </div><!-- /.container -->
+    </section><!-- /#bestsellers -->
+        <!-- ========================================= BEST SELLERS : END ========================================= -->
+        <!-- ============================================================= FOOTER ============================================================= -->
+}

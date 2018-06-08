@@ -1,0 +1,52 @@
+
+
+<nav class="navbar navbar-default navbar-static-top m-b-0">
+    <div class="navbar-header">
+        <div class="top-left-part">
+                <!-- Logo -->
+            <a class="logo" href="@routes.AdminController.index()">
+            @if(session().contains("photo")) {
+                    <!-- Logo icon image, you can use font-icon also --> <b>
+                        <!--This is dark logo icon--><img src="@routes.Assets.at(session().get("photo"))"  alt="home" class="dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                </b>
+            }
+                    <!-- Logo text image you can use text also --><span class="hidden-xs">
+                <span style="color: #000; font-size: 30px; text-transform: none">Everything</span>
+            </span> </a>
+        </div>
+            <!-- /Logo -->
+            <!-- Search input and Toggle icon -->
+        <ul class="nav navbar-top-links navbar-right pull-right">
+
+            <li class="dropdown">
+
+                <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
+                @if(session().contains("photo")) {
+                    <img src="@routes.Assets.at(session().get("photo"))" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">@session().get("name")</b>
+                }
+                    <span class="caret"></span> </a>
+                <ul class="dropdown-menu dropdown-user animated flipInY">
+                    <li>
+                        <div class="dw-user-box">
+                            @if(session().contains("photo")) {
+                                <div class="u-img"><img src="@routes.Assets.at(session().get("photo"))"  alt="user" /></div>
+                            }
+                            <div class="u-text">
+                                <h4>@session().get("name")</h4>
+                                <p class="text-muted">@session().get("email")</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                        </div>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                </ul>
+                    <!-- /.dropdown-user -->
+            </li>
+                <!-- /.dropdown -->
+        </ul>
+    </div>
+        <!-- /.navbar-header -->
+        <!-- /.navbar-top-links -->
+        <!-- /.navbar-static-side -->
+</nav>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/png" sizes="16x16" href="@routes.Assets.at("plugins/images/favicon.png")">
+        <title>Everything | Admin</title>
+            <!-- Bootstrap Core CSS -->
+        <link href="@routes.Assets.at("admin/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet">
+            <!-- Menu CSS -->
+        <link href="@routes.Assets.at("plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css")" rel="stylesheet">
+            <!-- chartist CSS -->
+        <link href="@routes.Assets.at("plugins/bower_components/chartist-js/dist/chartist.min.css")" rel="stylesheet">
+        <link href="@routes.Assets.at("plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css")" rel="stylesheet">
+            <!-- Vector CSS -->
+        <link href="@routes.Assets.at("plugins/bower_components/vectormap/jquery-jvectormap-2.0.2.css")" rel="stylesheet" />
+
+
+            <!-- animation CSS -->
+        <link href="@routes.Assets.at("admin/css/animate.css")" rel="stylesheet">
+            <!-- Custom CSS -->
+        <link href="@routes.Assets.at("admin/css/style.css")" rel="stylesheet">
+            <!-- color CSS -->
+        <link href="@routes.Assets.at("admin/css/colors/megna-dark.css")" id="theme" rel="stylesheet">
+            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
+
+    <body class="fix-header">
+            <!-- ============================================================== -->
+            <!-- Preloader -->
+            <!-- ============================================================== -->
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>
+            <!-- ============================================================== -->
+            <!-- Wrapper -->
+            <!-- ============================================================== -->
+        <div id="wrapper">
+                <!-- ============================================================== -->
+                <!-- Topbar header - style you can find in pages.scss -->
+                <!-- ============================================================== -->
+            <nav class="navbar navbar-default navbar-static-top m-b-0">
+                <div class="navbar-header">
+                    <div class="top-left-part">
+                            <!-- Logo -->
+                        <a class="logo" href="index.html">
+                                <!-- Logo icon image, you can use font-icon also --><b>
+                                <!--This is dark logo icon-->
+                            <img src="@routes.Assets.at("plugins/images/admin-logo.png")" alt="home" class="dark-logo" />
+                                <!--This is light logo icon-->
+                            <img src="@routes.Assets.at("plugins/images/admin-logo-dark.png")" alt="home" class="light-logo" />
+                        </b>
+                                <!-- Logo text image you can use text also --><span class="hidden-xs">
+                            <span style="color: #000; font-size: 30px; text-transform: none">Everything</span>
+                        </span> </a>
+                    </div>
+                        <!-- /Logo -->
+                        <!-- Search input and Toggle icon -->
+                    <ul class="nav navbar-top-links navbar-left">
+                        <li><a href="javascript:void(0)" class="open-close waves-effect waves-light"><i class="ti-menu"></i></a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"> <i class="mdi mdi-gmail"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <ul class="dropdown-menu mailbox animated bounceInDown">
+                                <li>
+                                    <div class="drop-title">You have 4 new messages</div>
+                                </li>
+                                <li>
+                                    <div class="message-center">
+                                        <a href="#">
+                                            <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="user-img"> <img src="../plugins/images/users/sonu.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="user-img"> <img src="../plugins/images/users/arijit.jpg" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span> </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="user-img"> <img src="@routes.Assets.at("plugins/images/users/pawandeep.jpg")" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="text-center" href="javascript:void(0);"> <strong>See all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                </li>
+                            </ul>
+                                <!-- /.dropdown-messages -->
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-top-links navbar-right pull-right">
+                        <li>
+                            <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
+                                <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="@routes.Assets.at("plugins/images/users/varun.jpg")" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b><span class="caret"></span> </a>
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li>
+                                    <div class="dw-user-box">
+                                        <div class="u-img"><img src="@routes.Assets.at("plugins/images/users/varun.jpg")" alt="user" /></div>
+                                        <div class="u-text">
+                                            <h4>Steave Jobs</h4>
+                                            <p class="text-muted">varun@@gmail.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                    </div>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                            </ul>
+                                <!-- /.dropdown-user -->
+                        </li>
+                            <!-- /.dropdown -->
+                    </ul>
+                </div>
+                    <!-- /.navbar-header -->
+                    <!-- /.navbar-top-links -->
+                    <!-- /.navbar-static-side -->
+            </nav>
+                <!-- End Top Navigation -->
+                <!-- ============================================================== -->
+                <!-- Left Sidebar - style you can find in sidebar.scss  -->
+                <!-- ============================================================== -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav slimscrollsidebar">
+                    <div class="sidebar-head">
+                        <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3> </div>
+                    <ul class="nav" id="side-menu">
+                        <li class="user-pro">
+                            <a href="#" class="waves-effect"><img src="@routes.Assets.at("plugins/images/users/varun.jpg")" alt="user-img" class="img-circle"> <span class="hide-menu"> Steve Gection<span class="fa arrow"></span></span>
+                            </a>
+                            <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                                <li><a href="profile.html"><i class="ti-user"></i> <span class="hide-menu">My Profile</span></a></li>
+                                <li><a href="inbox.html"><i class="ti-email"></i> <span class="hide-menu">Inbox</span></a></li>
+                                <li><a href="settings.html"><i class="ti-settings"></i> <span class="hide-menu">Account Setting</span></a></li>
+                                <li><a href="logout.html"><i class="fa fa-power-off"></i> <span class="hide-menu">Logout</span></a></li>
+                            </ul>
+                        </li>
+                        <li> <a href="index.html" class="waves-effect"><i class="mdi mdi-av-timer fa-fw"></i> <span class="hide-menu"> Dashboard</a>
+                        </li>
+                        <li> <a href="deals.html" class="waves-effect"><i class="mdi mdi-comment-account-outline fa-fw"></i><span class="hide-menu">New deals</span></a> </li>
+                        <li> <a href="customers.html" class="waves-effect"><i class="mdi mdi-seat-recline-normal fa-fw"></i><span class="hide-menu">customers</span></a> </li>
+
+                        <li> <a href="sellers.html" class="waves-effect"><i class="mdi mdi-account-multiple fa-fw"></i><span class="hide-menu">Sellers</span></a> </li>
+
+                        <li> <a href="markets.html" class="waves-effect"><i class="mdi mdi-truck-trailer fa-fw"></i><span class="hide-menu">markets</span></a> </li>
+                        <li> <a href="supermarkets.html" class="waves-effect"><i class="mdi mdi-shopping fa-fw"></i><span class="hide-menu">Supermarkets</span></a> </li>
+                        <li> <a href="brands.html" class="waves-effect"><i class="mdi mdi-source-branch fa-fw"></i><span class="hide-menu">Brands</span></a> </li>
+                        <li> <a href="restaurants.html" class="waves-effect"><i class="mdi mdi-food-variant fa-fw"></i><span class="hide-menu">restaurants</span></a> </li>
+                        <li> <a href="coffeeshops.html" class="waves-effect"><i class="mdi mdi-food fa-fw"></i><span class="hide-menu">Coffee shops</span></a> </li>
+                        <li class="devider"></li>
+                    </ul>
+                </div>
+            </div>
+                <!-- ============================================================== -->
+                <!-- End Left Sidebar -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Page Content -->
+                <!-- ============================================================== -->
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row bg-title">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            <h4 class="page-title">Dashboard </h4> </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Users</h3>
+                                <ul class="list-inline two-part">
+                                    <li><i class="icon-people text-info"></i></li>
+                                    <li class="text-right"><span class="counter">23</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Customers</h3>
+                                <ul class="list-inline two-part">
+                                    <li><i class="icon-folder text-purple"></i></li>
+                                    <li class="text-right"><span class="counter">169</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Sellers</h3>
+                                <ul class="list-inline two-part">
+                                    <li><i class="icon-folder-alt text-danger"></i></li>
+                                    <li class="text-right"><span class="">311</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Partners</h3>
+                                <ul class="list-inline two-part">
+                                    <li><i class="ti-wallet text-success"></i></li>
+                                    <li class="text-right"><span class="">117</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Markets</h3>
+                                <ul class="list-inline two-part">
+                                    <li><i class="mdi mdi-truck-trailer text-info"></i></li>
+                                    <li class="text-right"><span class="counter">23</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Supermarkets</h3>
+                                <ul class="list-inline two-part">
+                                    <li><i class="mdi mdi-shopping text-purple"></i></li>
+                                    <li class="text-right"><span class="counter">169</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Restaurants</h3>
+                                <ul class="list-inline two-part">
+                                    <li><i class="mdi mdi-food-variant text-danger"></i></li>
+                                    <li class="text-right"><span class="">311</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Coffee shop</h3>
+                                <ul class="list-inline two-part">
+                                    <li><i class="mdi mdi-food text-success"></i></li>
+                                    <li class="text-right"><span class="">117</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Closed deals</h3>
+                                <div class="text-right">
+                                    <h1><sup><i class="ti-arrow-up text-success"></i></sup> 12,000 RWF</h1> </div> <span class="text-success">20%</span>
+                                <div class="progress m-b-0">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:20%;"> <span class="sr-only">20% Complete</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">New deals</h3>
+                                <div class="text-right">
+                                    <h1><sup><i class="ti-arrow-down text-danger"></i></sup> 5,000 RWF</h1> </div> <span class="text-danger">30%</span>
+                                <div class="progress m-b-0">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:30%;"> <span class="sr-only">230% Complete</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">attended deals</h3>
+                                <div class="text-right">
+                                    <h1><sup><i class="ti-arrow-up text-info"></i></sup> 10,000 RWF</h1> </div> <span class="text-info">60%</span>
+                                <div class="progress m-b-0">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:60%;"> <span class="sr-only">20% Complete</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title">Unattended deals</h3>
+                                <div class="text-right">
+                                    <h1><sup><i class="ti-arrow-up text-inverse"></i></sup> 9,000 RWF</h1> </div> <span class="text-inverse">80%</span>
+                                <div class="progress m-b-0">
+                                    <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:80%;"> <span class="sr-only">230% Complete</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                    <!-- /#page-wrapper -->
+            </div>
+            </div>
+                <!-- /#wrapper -->
+                <!-- jQuery -->
+            <script src="@routes.Assets.at("plugins/bower_components/jquery/dist/jquery.min.js")"></script>
+                <!-- Bootstrap Core JavaScript -->
+            <script src="@routes.Assets.at("admin/bootstrap/dist/js/bootstrap.min.js")"></script>
+                <!-- Menu Plugin JavaScript -->
+        <script src="@routes.Assets.at("plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js")"></script>
+                <!--Counter js -->
+        <script src="@routes.Assets.at("plugins/bower_components/waypoints/lib/jquery.waypoints.js")"></script>
+        <script src="@routes.Assets.at("plugins/bower_components/counterup/jquery.counterup.min.js")"></script>
+                <!--slimscroll JavaScript -->
+        <script src="@routes.Assets.at("admin/js/jquery.slimscroll.js")"></script>
+                <!--Wave Effects -->
+            <script src="@routes.Assets.at("admin/js/waves.js")"></script>
+                <!-- Vector map JavaScript -->
+        <script src="@routes.Assets.at("plugins/bower_components/vectormap/jquery-jvectormap-2.0.2.min.js")"></script>
+        <script src="@routes.Assets.at("plugins/bower_components/vectormap/jquery-jvectormap-world-mill-en.js")"></script>
+        <script src="@routes.Assets.at("plugins/bower_components/vectormap/jquery-jvectormap-in-mill.js")"></script>
+        <script src="@routes.Assets.at("plugins/bower_components/vectormap/jquery-jvectormap-us-aea-en.js")"></script>
+            <!-- chartist chart -->
+        <script src="@routes.Assets.at("plugins/bower_components/chartist-js/dist/chartist.min.js")"></script>
+        <script src="@routes.Assets.at("plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js")"></script>
+            <!-- sparkline chart JavaScript -->
+        <script src="@routes.Assets.at("plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js")"></script>
+        <script src="@routes.Assets.at("plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js")"></script>
+                <!-- Custom Theme JavaScript -->
+        <script src="@routes.Assets.at("admin/js/custom.min.js")"></script>
+        <script src="@routes.Assets.at("admin/js/dashboard3.js")"></script>
+                <!--Style Switcher -->
+            <script src="@routes.Assets.at("plugins/bower_components/styleswitcher/jQuery.style.switcher.js")"></script>
+    </body>
+
+</html>

@@ -1,0 +1,178 @@
+@(users:List[User])
+@admin.master("Everything | Admins"){
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Admins</h4> </div>
+            </div>
+                <!-- /row -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="white-box">
+                        <a href="#add_supermarket" data-toggle="modal"   class="btn btn-primary"><i class="fa fa-plus"></i>Add new admin</a>
+                        <div class="table-responsive">
+                            <table id="myTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Names</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Gender</th>
+                                        <th>Tools</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                               @for(user <-users){
+                                   <tr>
+                                   <td>@user.names</td>
+                                   <td>@user.email</td>
+                                   <td>@user.phone</td>
+                                   <td>@user.address</td>
+                                   <td>@user.gender</td>
+                                   <td>
+                                       <a href="#delete-seller@user.id" data-toggle="modal"  class="fa fa-trash btn btn-danger btn-xs"></a>
+                                       <a href="#update-seller@user.id" data-toggle="modal" class="fa fa-pencil btn btn-primary btn-xs"></a>
+                                   </td>
+                                   </tr>
+                                   <div class="modal fade" id="delete-seller@user.id" >
+                                       <div class="modal-dialog">
+                                           <div class="modal-content">
+                                               <div class="modal-header" >
+                                                   <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                                                   <h3>Are you sure you want to delete this seller?</h3>
+                                               </div>
+                                               <div class="modal-footer">
+                                                   <div class="form-group" style="text-align: center">
+                                                       <a href="#" class="btn btn-primary" data-dismiss="modal"><span class="fa fa-close"></span> No</a>
+                                                       <a href="@routes.AdminController.destroy_admin(user.id)" class="btn btn-danger"><span class="fa fa-check-circle"></span> Yes</a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="modal fade" id="update-seller@user.id" >
+                                       <div class="modal-dialog">
+                                           <div class="modal-content">
+                                               <div class="modal-header" >
+                                                   <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                                                   <h3>Update Shop Admin</h3>
+                                               </div>
+                                               <form role="form" action="@routes.AdminController.update_admin()" method="post" enctype="multipart/form-data">
+                                                   <div class="modal-body">
+                                                       <div class="form-group">
+                                                           <input type="text" name="names" value="@user.names" class="form-control" required>
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <input type="email" name="email" value="@user.email"  class="form-control" required>
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <input type="text" name="phone" value="@user.phone"  class="form-control" required>
+                                                       </div>
+                                                       <input name="id" type="hidden" value="@user.id">
+                                                       <div class="form-group">
+                                                           <input type="text" name="address" value="@user.address"  class="form-control" required>
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <input type="password" name="password"  class="form-control" >
+                                                       </div>
+                                                       <div class="form-group">
+                                                           @if(user.gender.equals("Male")){
+                                                               <label class="radio-inline"><input type="radio" name="gender" checked value="Male">Male</label>
+                                                               <label class="radio-inline"><input type="radio" name="gender" value="Female">Female</label>
+                                                           }
+                                                           @if(user.gender.equals("Female")){
+                                                               <label class="radio-inline"><input type="radio" name="gender"  value="Male">Male</label>
+                                                               <label class="radio-inline"><input type="radio" name="gender" checked value="Female">Female</label>
+                                                           }
+
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <label>Choose a photo</label> <input type="file" name="photo"  class="form-control">
+                                                       </div>
+
+                                                   </div>
+                                                   <div class="modal-footer">
+                                                       <div class="form-group">
+                                                           <a href="#" class="btn btn-danger pull-left" data-dismiss="modal"><span class="fa fa-close"></span> Close</a>
+
+                                                           <button type="submit" class="btn btn-primary pull-right"><span class="fa fa-check-circle"></span> Comfirm</button>
+                                                       </div>
+                                                   </div>
+                                               </form>
+
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               }
+
+
+
+
+
+
+
+                                </tbody>
+
+                            </table>
+                            <div style="text-align: center">
+
+                                <div class="modal fade" id="add_supermarket" >
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header" >
+                                                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                                                <h3>Add New Admin</h3>
+                                            </div>
+                                            <form role="form" action="@routes.UserController.store_admin()" method="post" enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <input type="text" name="names" placeholder="Enter shop name" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="email" name="email" placeholder="Enter E-mail" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" name="phone" placeholder="Enter phonel" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" name="address" placeholder="Enter address" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" name="password" placeholder="Enter password" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="radio-inline"><input type="radio" name="gender" checked value="Male">Male</label>
+                                                        <label class="radio-inline"><input type="radio" name="gender" value="Female">Female</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Choose a photo</label> <input type="file" name="photo"  class="form-control" required>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="form-group">
+                                                        <a href="#" class="btn btn-danger pull-left" data-dismiss="modal"><span class="fa fa-close"></span> Close</a>
+
+                                                        <button type="submit" class="btn btn-primary pull-right"><span class="fa fa-check-circle"></span> Comfirm</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}

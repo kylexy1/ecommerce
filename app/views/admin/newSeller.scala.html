@@ -1,0 +1,85 @@
+@(shops: List[Shop], markets: List[Market])
+@admin.master("Everything |Sellers") {
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Individual sellers</h4> </div>
+            </div>
+                <!-- /row -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="white-box">
+                        <a href="#add_supermarket" data-toggle="modal" class="btn btn-primary"><i class="fa fa-plus"></i>
+                            Create your shop</a>
+                        <div class="table-responsive">
+                            <div style="text-align: center">
+                                <div class="modal fade" id="add_supermarket" >
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header" >
+                                                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                                                <h3>Create your shop</h3>
+                                            </div>
+                                            <form role="form" action="@routes.IndividualSellersController.store_self()" method="post" enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <input type="text" name="name" placeholder="Enter shop name" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select class="form-control" name="market">
+                                                            <option>---Select Market---</option>
+                                                            @for(market <- markets) {
+                                                                <option value="@market.id">@market.name</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="hidden" value="@session().get("user_id")" name="user">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" name="location" placeholder="Enter Phone" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" name="location" placeholder="Enter Email" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" name="location" placeholder="Enter Location" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" name="opening" placeholder="Opening hour" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" name="closing" placeholder="Closing hour" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Choose a photo</label> <input type="file" name="photo" class="form-control" required>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="form-group">
+                                                        <a href="#" class="btn btn-danger pull-left" data-dismiss="modal"><span class="fa fa-close"></span>
+                                                            Close</a>
+
+                                                        <button type="submit" class="btn btn-primary pull-right"><span class="fa fa-check-circle"></span>
+                                                            Comfirm</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}

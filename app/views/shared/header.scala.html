@@ -1,0 +1,260 @@
+<nav class="top-bar animate-dropdown">
+    <div class="container">
+        <div class="col-xs-8 col-sm-6 no-margin">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="index.php?page=blog">Blog</a></li>
+                <li><a href="index.php?page=faq">FAQ</a></li>
+                <li><a href="index.php?page=contact">Contact</a></li>
+            </ul>
+        </div><!-- /.col -->
+
+        <div class="col-xs-4 col-sm-6 no-margin">
+            <ul class="right">
+       @if(session().get("user_id") == null){
+                <li><a href="/view/register">Register</a></li>
+                <li><a href="/view/login">Login</a></li>
+           }
+           @if(session().get("user_id") != null) {
+            <li><a href="/logout">Logout</a></li>
+           }
+            </ul>
+        </div><!-- /.col -->
+    </div><!-- /.container -->
+</nav><!-- /.top-bar -->
+    <!-- ============================================================= TOP NAVIGATION : END ============================================================= -->       <!-- ============================================================= HEADER ============================================================= -->
+<header class="no-padding-bottom header-alt">
+    <div class="row" style="padding: 15px 15px">
+
+        <div class="col-xs-12 col-md-3 logo-holder">
+                <!-- ============================================================= LOGO ============================================================= -->
+            <div class="logo">
+                <a href="http://localhost/~ibrahim/themeforest/HTML/mediacenter/upload/PHP/home">
+                        <!--<img alt="logo" src="assets/images/logo.svg" width="233" height="54"/>-->
+                        <!--<object id="sp" type="image/svg+xml" data="assets/images/logo.svg" width="233" height="54"></object>-->
+                    <div width="233px" height="54px">
+                        <span style="font-weight: 900; font-size: 50px">Every</span>
+
+                        <sup style="font-weight: 500; font-size: 30px">thing</sup>
+
+                    </div>
+                </a>
+            </div><!-- /.logo -->
+            <!-- ============================================================= LOGO : END ============================================================= -->
+        </div><!-- /.logo-holder -->
+
+        <div class="col-xs-12 col-md-6 top-search-holder no-margin">
+            <div class="contact-row">
+                <div class="phone inline">
+                    <i class="fa fa-phone"></i> (+250) 781 185 922
+                </div>
+                <div class="contact inline">
+                    <i class="fa fa-envelope"></i> contact@@<span class="le-color">everything.com</span>
+                </div>
+            </div><!-- /.contact-row -->
+            <!-- ============================================================= SEARCH AREA ============================================================= -->
+            <div class="search-area">
+                <form>
+                    <div class="control-group">
+                        <input class="search-field" placeholder="Search for item" />
+
+                        <ul class="categories-filter animate-dropdown">
+                            <li class="dropdown">
+
+                                <a class="dropdown-toggle"  data-toggle="dropdown" href="search.html">all categories</a>
+
+                                <ul class="dropdown-menu" role="menu" >
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="search.html">Markets</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="search.html">super markets</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="search.html">restaurants</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="search.html">coffee shops</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="search.html">brands</a></li>
+
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <a class="search-button" href="#" ></a>
+
+                    </div>
+                </form>
+            </div><!-- /.search-area -->
+            <!-- ============================================================= SEARCH AREA : END ============================================================= -->
+        </div><!-- /.top-search-holder -->
+
+        <div class="col-xs-12 col-md-3 top-cart-row no-margin">
+            <div class="top-cart-row-container">
+                    <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+                <div class="top-cart-holder dropdown animate-dropdown">
+
+                    <div class="basket">
+
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <div class="basket-item-count">
+                                <span class="count">@session().get("count")</span>
+                                <img src="@routes.Assets.at("assets/images/icon-cart.png")" alt="" />
+                            </div>
+
+                            <div class="total-price-basket">
+                                <span class="lbl">your cart:</span>
+                                <span class="total-price">
+                                    <span class="value">@OrdersController.price()</span> <span class="sign">RWF</span>
+                                </span>
+                            </div>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            @for( cart <-OrdersController.list()){
+                                <li>
+                                    <div class="basket-item">
+                                        <div class="row">
+                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
+                                                <div class="thumb">
+                                                    <img alt="" src="@routes.Assets.at(DirectTools.image(cart.id).image)" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8 col-sm-8 no-margin">
+                                                <div class="title">@cart.name</div>
+                                                <div class="price">@cart.price</div>
+                                            </div>
+                                        </div>
+                                        <a class="close-btn" href="#"></a>
+                                    </div>
+                                </li>
+                            }
+
+
+
+                            <li class="checkout">
+                                <div class="basket-item">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <a href="@routes.OrdersController.cart()" class="le-button inverse">View cart</a>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <a href="@routes.OrdersController.store()" class="le-button">Checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div><!-- /.basket -->
+                </div><!-- /.top-cart-holder -->
+            </div><!-- /.top-cart-row-container -->
+            <!-- ============================================================= SHOPPING CART DROPDOWN : END ============================================================= -->
+        </div>
+
+       <!-- /.top-cart-row -->
+    </div>
+    <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+    @if(flash().contains("infor")) {
+        <div class="alert alert-danger alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @flash.get("infor")
+        </div>
+    }
+    </div>
+    </div><!-- /.container -->
+
+    <!-- ========================================= NAVIGATION ========================================= -->
+    <nav id="top-megamenu-nav" class="megamenu-vertical animate-dropdown">
+        <div class="container">
+            <div class="yamm navbar">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mc-horizontal-menu-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div><!-- /.navbar-header -->
+                <div class="collapse navbar-collapse" id="mc-horizontal-menu-collapse">
+                    <ul class="nav navbar-nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Markets</a>
+                            <ul class="dropdown-menu">
+                                @for(market <-DirectTools.allMarket()) {
+                                    <li><a href="@routes.MarketController.MarketShops(market.id)">@market.name</a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Super markets</a>
+                            <ul class="dropdown-menu">
+                            @for(market <-DirectTools.superMaket()) {
+                                <li><a href="@routes.SuperMarketController.front_superMarket(market.id)">@market.name</a></li>
+                            }
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Brands</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <style type="text/css"> .yamm-content ul .col-sm-4{margin-left: 1%; width: 32%}</style>
+                                    <div class="yamm-content">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h2>Made in Rwanda</h2>
+                                                <ul>
+                                                @for(brand <-DirectTools.brands()) {
+                                                    <li class="col-xs-12 col-sm-4"><a href="products.html">@brand.name</a></li>
+                                                }
+
+                                                </ul>
+                                            </div><!-- /.col -->
+                                        </div><!-- /.row -->
+                                    </div><!-- /.yamm-content -->
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Restaurants</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="yamm-content">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h2>Restaurants</h2>
+                                                <ul>
+                                                    @for(rest <-DirectTools.restaurant()){
+                                                        <li class="col-xs-12 col-sm-4"><a href="@routes.SuperMarketController.front_superMarket(rest.id)">@rest.name</a></li>
+                                                    }
+
+                                                </ul>
+                                            </div><!-- /.col -->
+
+                                        </div><!-- /.row -->
+                                    </div><!-- /.yamm-content -->
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Coffee shops</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="yamm-content">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h2>coffee shops</h2>
+                                                <ul>
+                                           @for(coffe <-DirectTools.coffeeShops()){
+                                               <li class="col-xs-12 col-sm-4"><a href="@routes.SuperMarketController.front_superMarket(coffe.id)">@coffe.name</a></li>
+                                           }
+                                                </ul>
+                                            </div><!-- /.col -->
+                                        </div><!-- /.row -->
+                                    </div><!-- /.yamm-content -->
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul><!-- /.navbar-nav -->
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.navbar -->
+        </div><!-- /.container -->
+    </nav><!-- /.megamenu-vertical -->
+    <!--========================================= NAVIGATION : END ========================================= -->
+</header>

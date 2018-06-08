@@ -1,0 +1,49 @@
+
+
+
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav slimscrollsidebar">
+        <div class="sidebar-head">
+            <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3> </div>
+
+            <ul class="nav" id="side-menu">
+                <li class="user-pro">
+                    @if(session().contains("photo")){
+                        <span>Hello!!! @session().get("photo")</span>
+                        <a href="#" class="waves-effect"><img src="@routes.Assets.at(session().get("photo"))" alt="user-img" class="img-circle"> <span class="hide-menu"> Steve Gection<span class="fa arrow"></span></span>
+                        </a>
+                    }
+
+                    <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
+                        <li><a href="@routes.UserController.logout()"><i class="fa fa-power-off"></i> <span class="hide-menu">Logout</span></a></li>
+                    </ul>
+                </li>
+
+                <li> <a href="index.html" class="waves-effect"><i class="mdi mdi-av-timer fa-fw"></i> <span class="hide-menu"></span> Dashboard</a>
+
+                </li>
+                <li> <a href="#"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Users <span class="fa arrow"></span> </span></a>
+                    <ul class="nav nav-second-level">
+                        <li> <a href="@routes.UserController.admin()" class="waves-effect"><i class="mdi mdi-truck-trailer fa-fw"></i><span class="hide-menu">Admins</span></a> </li>
+                        <li> <a href="@routes.UserController.customer()" class="waves-effect"><i class="mdi mdi-seat-recline-normal fa-fw"></i><span class="hide-menu">customers</span></a> </li>
+                    </ul>
+                </li>
+
+                <li> <a href="#"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Sellers <span class="fa arrow"></span> </span></a>
+                    <ul class="nav nav-second-level">
+                        <li> <a href="@routes.MarketController.index()" class="waves-effect"><i class="mdi mdi-truck-trailer fa-fw"></i><span class="hide-menu">markets</span></a> </li>
+                        <li> <a href="@routes.SuperMarketController.index()" class="waves-effect"><i class="mdi mdi-shopping fa-fw"></i><span class="hide-menu">Supermarkets</span></a> </li>
+                        <li> <a href="@routes.BrandController.index()" class="waves-effect"><i class="mdi mdi-source-branch fa-fw"></i><span class="hide-menu">Brands</span></a> </li>
+                        <li> <a href="@routes.RestaurantController.index()" class="waves-effect"><i class="mdi mdi-food-variant fa-fw"></i><span class="hide-menu">restaurants</span></a> </li>
+                        <li> <a href="@routes.CoffeeShopsController.index() " class="waves-effect"><i class="mdi mdi-food fa-fw"></i><span class="hide-menu">Coffee shops</span></a> </li>
+                        <li> <a href="@routes.SellersController.index()" class="waves-effect"><i class="mdi mdi-account-multiple fa-fw"></i><span class="hide-menu">Individual sellers</span></a> </li>
+                    </ul>
+                </li>
+                <li> <a href="@routes.ProductController.index()" class="waves-effect"><i class="mdi mdi-comment-account-outline fa-fw"></i><span class="hide-menu">Product</span></a> </li>
+                <li> <a href="@routes.ProductCategoryController.list()" class="waves-effect"><i class="mdi mdi-comment-account-outline fa-fw"></i><span class="hide-menu">Product category</span></a> </li>
+                <li> <a href="@routes.OrdersController.OrderList()" class="waves-effect"><i class="mdi mdi-comment-account-outline fa-fw"></i><span class="hide-menu">Order</span></a> </li>
+
+                <li class="devider"></li>
+            </ul>
+    </div>
+</div>

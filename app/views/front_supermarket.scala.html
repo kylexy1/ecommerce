@@ -1,0 +1,54 @@
+
+
+
+@(supermarket:List[Product],shop_name:Shop)
+@main("Everything | Supermarkets"){
+    <section id="" class=" wow fadeInUp">
+        <div class="container">
+            <h1 class="section-title">@shop_name.name</h1>
+
+            <div class="product-grid-holder medium">
+
+                <div class="col-xs-12 col-md-12 no-margin">
+
+                    <div class="row no-margin">
+                        @for(mark <-supermarket) {
+                            <div class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover">
+                                <div class="product-item">
+                                    <div class="image">
+                                        <img alt="" src="@routes.Assets.at(DirectTools.image(mark.id).image)" data-echo="@routes.Assets.at(DirectTools.image(mark.id).image)" />
+                                    </div>
+                                    <div class="body">
+                                        <div class="label-discount clear"></div>
+                                        <div class="title">
+                                            <a href="single-product.html">@mark.name</a>
+                                        </div>
+
+                                    </div>
+                                    <div class="prices">
+
+                                        <div class="price-current text-right">@mark.price</div>
+                                    </div>
+                                    <div class="hover-area">
+                                        <div class="add-cart-button">
+                                            <a href="@routes.OrdersController.costomer_order(mark.id)" class="le-button">Add to cart</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> <!-- /.product-item-holder -->
+                            }
+                        <!-- /.product-item-holder -->
+
+
+                    </div><!-- /.row -->
+                </div><!-- /.col -->
+                <div class="loadmore-holder text-center">
+                    <a class="btn-loadmore" href="#">
+                        <i class="fa fa-plus"></i>
+                        load more products</a>
+                </div>
+            </div><!-- /.product-grid-holder -->
+        </div><!-- /.container -->
+    </section>
+}

@@ -1,0 +1,48 @@
+@(product:List[Product])
+@admin.master("Everything | Products"){
+    <div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-md-12">
+                <h4 class="page-title">products</h4>
+            </div>
+        </div>
+            <!-- /row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <a href="@routes.ProductController.addproduct()"    class="btn btn-primary"><i class="fa fa-plus"></i>Add Product</a>
+                    <h3 class="box-title m-b-0">products</h3>
+                    <div class="table-responsive">
+                        <table id="myTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>price</th>
+                                    <th>units</th>
+                                    <th>Category</th>
+                                    <th>Order</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for(prod <- product){
+                                    <tr>
+                                        <td>@prod.name</td>
+                                        <td>@prod.price</td>
+                                        <td>@prod.quanty</td>
+                                        <td>@prod.productCategory.name</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+            <!-- /.row -->
+
+    </div>
+    </div>
+}

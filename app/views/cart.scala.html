@@ -1,0 +1,82 @@
+
+
+@(product:List[Product])
+@main("Everything | Cart"){
+
+    <section id="cart-page">
+        <div style="padding: 20px; background: rgba(0,0,0,.05);text-align: center" class="col-xs-12">
+            <a href="@routes.OrdersController.cart()" class="le-button medium big"><i class="fa fa-shopping-cart"></i> Cart</a>
+            @if(session().get("user_id") != null) {
+            <a href="@routes.UserController.customer_editProfile()" class="le-button medium"><i class="fa fa-user"></i> Edit profile</a>
+            <a href="@routes.UserController.passwordForm()" class="le-button medium"><i class="fa fa-lock"></i> Change password</a>
+            <a href="@routes.OrdersController.history(Long.valueOf(session().get("user_id")))" class="le-button medium"><i class="fa fa-history"></i> Purchase history</a>
+            }
+        </div>
+        <div class="container">
+            @if(flash().contains("success")) {
+                <div class="alert alert-success alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @flash.get("success")
+                </div>
+            }
+                <!-- ========================================= CONTENT ========================================= -->
+            <div class="col-xs-12 col-md-9 items-holder no-margin">
+               @for(prod<-product) {
+                   <div class="row no-margin cart-item">
+                       <div class="col-xs-12 col-sm-2 no-margin">
+                           <a href="#" class="thumb-holder">
+                               <img class="lazy" alt="" src="@routes.Assets.at(DirectTools.image(prod.id).image)" />
+                           </a>
+                       </div>
+
+                       <div class="col-xs-12 col-sm-5 ">
+                           <div class="title">
+                               <a href="#"></a>
+                           </div>
+                           <div class="brand">@prod.name</div>
+                       </div>
+
+
+
+                       <div class="col-xs-12 col-sm-2 no-margin">
+                           <div class="price">
+                           @prod.price
+                           </div>
+                           <a class="close-btn" href="#"></a>
+                       </div>
+                   </div> <!-- /.cart-item -->
+               }
+
+            </div>
+                <!-- ========================================= CONTENT : END ========================================= -->
+
+                <!-- ========================================= SIDEBAR ========================================= -->
+
+            <div class="col-xs-12 col-md-3 no-margin sidebar ">
+                <div class="widget cart-summary">
+                    <h1 class="border">shopping cart</h1>
+                    <div class="body">
+                        <ul class="tabled-data no-border inverse-bold">
+                            <li>
+                                <label>cart subtotal</label>
+                                <div class="value pull-right">@OrdersController.price()</div>
+                            </li>
+                            <li>
+                                <label>shipping</label>
+                                <div class="value pull-right">free derivery</div>
+                            </li>
+                        </ul>
+                        <ul id="total-price" class="tabled-data inverse-bold no-border">
+                            <li>
+                                <label>order total</label>
+                                <div class="value pull-right">@OrdersController.price()</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- /.widget -->
+            </div><!-- /.sidebar -->
+
+            <!-- ========================================= SIDEBAR : END ========================================= -->
+        </div>
+    </section>
+}

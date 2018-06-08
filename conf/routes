@@ -1,0 +1,116 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                                      controllers.Application.index()
+
+GET         /view/login                            controllers.UserController.index()
+GET         /view/register                         controllers.UserController.registerView()
+GET         /admin/list/                           controllers.UserController.admin()
+POST        /signin                                controllers.UserController.login()
+POST        /signup                                controllers.UserController.register()
+POST        /update/user                           controllers.UserController.update_user_profile()
+POST        /change/user-password                  controllers.UserController.change_password()
+GET         /logout                                controllers.UserController.logout()
+GET         /get/password-form                     controllers.UserController.passwordForm()
+GET         /user-profile                          controllers.UserController.customer_editProfile()
+
+GET         /customer/list/                        controllers.UserController.customer()
+POST        /store/admin/                          controllers.UserController.store_admin()
+
+
+GET         /admin/dashboard/                      controllers.AdminController.index()
+GET         /admin/new/dashboard/                  controllers.AdminController.newAdmin()
+GET         /admin/shop/dashboard/:id              controllers.AdminController.shopAdmin(id:Long)
+GET         /admin/destroy/:id                     controllers.AdminController.destroy_admin(id:Long)
+POST        /admin/update/                         controllers.AdminController.update_admin()
+
+
+GET         /admin/all-market                      controllers.MarketController.index()
+GET         /admin/get-add/market                  controllers.MarketController.getAddMarket()
+POST        /admin/store/market                    controllers.MarketController.store()
+POST        /admin/update/market                   controllers.MarketController.update()
+GET         /shops/market/:id                      controllers.MarketController.MarketShops(id:Long)
+GET         /destroy/market/:id                    controllers.MarketController.destroy(id:Long)
+GET         /admin/market/sellers/:id              controllers.MarketController.Marketseller(id:Long)
+GET         /public/market                         controllers.MarketController.allmarkets()
+
+POST        /store/product-cat/                    controllers.ProductCategoryController.store()
+GET         /list/product-cat/                     controllers.ProductCategoryController.list()
+
+GET         /super-market                          controllers.SuperMarketController.index()
+GET         /produuct/super-market/:id             controllers.SuperMarketController.productList(id:Long)
+POST        /store/super-market                    controllers.SuperMarketController.store()
+POST        /update/super-market                   controllers.SuperMarketController.update()
+GET         /front/product/super-market/:id        controllers.SuperMarketController.front_superMarket(id:Long)
+GET         /destroy/shop/:id                      controllers.SuperMarketController.destroy(id:Long)
+GET         /public/supermarket                    controllers.SuperMarketController.allsupermarket()
+
+
+POST        /store/product                         controllers.ProductController.store()
+GET         /list/product/:id                      controllers.ProductController.productList(id:Long)
+GET         /add-product                           controllers.ProductController.addproduct()
+GET         /list/product                          controllers.ProductController.index()
+GET         /list/product/:name                    controllers.ProductController.Search_productList(name:String)
+GET         /product/discrip/:id                   controllers.ProductController.productDiscr(id:Long)
+
+POST        /store/product-img/                    controllers.ProductImageController.store()
+
+POST        /store/shop-cat/                       controllers.ShopCategoryController.store()
+
+POST        /store/shop/                           controllers.ShopController.store()
+GET         /addproduct/                           controllers.ShopController.addproduct()
+
+POST        /store/brand/                          controllers.BrandController.store()
+GET         /brand-list/                           controllers.BrandController.index()
+
+POST        /store/branch/                         controllers.BranchController.store()
+
+POST        /store/restaurant/                     controllers.RestaurantController.store()
+POST        /update/restaurant/                    controllers.RestaurantController.update()
+GET         /restaurant                            controllers.RestaurantController.index()
+GET         /public/Restaurent                     controllers.RestaurantController.allResto()
+
+GET         /coffeshops/                           controllers.CoffeeShopsController.index()
+POST        /store/coffeshops                      controllers.CoffeeShopsController.store()
+POST        /update/coffeshops                     controllers.CoffeeShopsController.update()
+GET         /public/coffeshops                     controllers.CoffeeShopsController.allCoffeeShops()
+
+
+GET         /sellers/                              controllers.SellersController.index()
+
+GET         /individual/                           controllers.IndividualSellersController.index()
+GET         /new/individual                        controllers.IndividualSellersController.newSeller()
+POST        /store/seller/                         controllers.IndividualSellersController.store()
+POST        /self/store/seller/                    controllers.IndividualSellersController.store_self()
+POST        /update/seller/                        controllers.IndividualSellersController.update()
+
+
+
+GET         /add-cart/:id                          controllers.OrdersController.costomer_order(id:Long)
+GET         /cart/                                 controllers.OrdersController.cart()
+GET         /store/order/                          controllers.OrdersController.store()
+GET         /cart/list/:id/:quantity               controllers.OrdersController.cart_list(id:Long,quantity:Integer)
+GET         /cart/history/:id                      controllers.OrdersController.history(id:Long)
+GET         /order/admin/list                      controllers.OrdersController.OrderList()
+
+GET         /test                                  controllers.ShopController.index()
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                          controllers.Assets.at(path="/public", file)
+
+
+#api routes
+
+GET         /api/get-market/                       controllers.Api.MarketController.MarketList()
+POST        /api/get-shops/                        controllers.Api.MarketController.shoptList()
+POST        /api/get-product/                      controllers.Api.MarketController.productList()
+POST        /api/search/product/                   controllers.Api.MarketController.Search_productList()
+POST        /api/brand/product/                    controllers.Api.MarketController.brandProduct()
+POST        /api/category/product/                 controllers.Api.MarketController.catProduct()
+POST        /api/product/discription/              controllers.Api.MarketController.productDiscr()
+
+POST        /api/register                          controllers.Api.UserController.registerApi()
+POST        /api/login                             controllers.Api.UserController.login()

@@ -1,0 +1,83 @@
+
+@admin.master("New Market"){
+
+    <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">New Market</h4> </div>
+    </div>
+        <!-- /row -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+
+
+                <h3 class="box-title m-b-0">Add new market</h3>
+                <div  class="col-lg-12 col-xs-12"  id="addStudent" >
+
+
+                    <form role="form" action="#" method="post" enctype="multipart/form-data" id="studentForm">
+
+                                <div class="col-lg-6 col-xs-12">
+
+                                    <div class="form-group">
+                                        <input type="text" name="firstName" placeholder="Enter Market Name" class="form-control" required id="sname">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="lastName" placeholder="Enter Last Name" class="form-control" required id="lname">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="email" placeholder="Enter student's E-mail" class="form-control" required id="sEmail">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="phone" placeholder="Enter student's phone numbers" class="form-control" required id="sPhone">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="address" placeholder="Enter students's Address" class="form-control" required id="sAddress">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-xs-12">
+                                    <div class="form-group">
+                                        <input type="text" name="age" placeholder="Enter student's age" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="nationality" placeholder="Enter student's nationality" class="form-control" required id="sage">
+                                    </div>
+                                    <div class="form-group" id="sNationality">
+                                        <input type="text" name="nationalId" placeholder="Enter student'snational Id" class="form-control" required>
+                                    </div>
+                                    @*<div class="form-group">*@
+                                    @*<label class="control-label" for="date"></label>*@
+                                    @*<input type="text" id="dob1" name="dob" placeholder="Enter student's date of bath" class="form-control" required><span class="input-group-addon">*@
+                                    @*<span class="glyphicon glyphicon-calendar"></span>*@
+                                    @*</span>*@
+                                    @*</div>*@
+                                    <div class="input-group" >
+                                        <input type="text" class="form-control"    name="dob"  id="datepicker-3">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar" id="datepicker-3"></span>
+                                        </span>
+                                    </div><br>
+
+                                    <div class="form-group">
+                                        <label class="checkbox-inline "><input name="sex"  type="radio" value="Male">Male</label>
+                                        <label class="checkbox-inline"><input  name="sex" type="radio" value="Female">Female</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Choose a photo</label> <input type="file" name="photo"  class="form-control" required>
+                                    </div>
+
+                            </div>
+                                <a type="button" class="btn btn-primary pull-left" href=""><span class="fa fa-reply"></span> Back</a>
+                                <button type="submit" class="btn btn-primary pull-right"><span class="fa fa-save"></span> Save</button>
+                            <br><br>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+        <!-- /.row -->
+
+}

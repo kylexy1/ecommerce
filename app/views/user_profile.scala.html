@@ -1,0 +1,56 @@
+
+
+@(user:User)
+@main("Everything | Change profile"){
+
+    <div style="padding: 20px; background: rgba(0,0,0,.05);text-align: center" class="col-xs-12">
+        <a href="@routes.OrdersController.cart()" class="le-button medium"><i class="fa fa-shopping-cart"></i> Cart</a>
+        @if(session().get("user_id") != null) {
+            <a href="@routes.UserController.customer_editProfile()" class="le-button medium"><i class="fa fa-user"></i> Edit profile</a>
+            <a href="@routes.UserController.passwordForm()" class="le-button medium"><i class="fa fa-lock"></i> Change password</a>
+            <a href="@routes.OrdersController.history(Long.valueOf(session().get("user_id")))" class="le-button medium"><i class="fa fa-history"></i> Purchase history</a>
+        }
+    </div>
+    <section id="checkout-page">
+        <div class="container">
+            <div class="col-xs-12 no-margin">
+
+                <div class="billing-address">
+                    <h2 class="border h1">Edit profile</h2>
+                    <form role="form" action="@routes.UserController.update_user_profile()">
+                        <div class="row field-row">
+                            <div class="col-xs-12 col-sm-6">
+                                <label>full name*</label>
+                                <input class="le-input" value="@user.names" name="name" >
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <label>Email*</label>
+                                <input class="le-input" value="@user.email" name="email" type="email" >
+                            </div>
+                        </div><!-- /.field-row -->
+
+                        <div class="row field-row">
+                            <div class="col-xs-12 col-sm-6">
+                                <label>address*</label>
+                                <input class="le-input" value="@user.address" name="address" >
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <label>Phone*</label>
+                                <input class="le-input" value="@user.phone"  name="phone">
+                            </div>
+                        </div>
+
+
+                        <div class="buttons-holder">
+                            <button type="submit" class="le-button small pull-right">Save changes</button>
+                        </div><!-- /.buttons-holder -->
+
+                    </form>
+                </div><!-- /.billing-address -->
+
+                <br><br><br>
+
+            </div><!-- /.col -->
+        </div><!-- /.container -->
+    </section>
+}
